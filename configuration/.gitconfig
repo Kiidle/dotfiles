@@ -1,23 +1,47 @@
 [user]
-    name = Elio Schmutz
-    email = e.schmutz@4teamwork.ch
-[alias]
-    co = checkout
-[color]
-    diff = auto
-    status = auto
-    branch = auto
+    name = Jonas S. Büchi
+    email = jonas.buechi@4teamwork.ch
+
 [core]
-    excludesfile = /Users/elioschmutz/.gitignore_global
-    editor = /usr/bin/vim
+        excludesFile = ~/.gitignore
     autocrlf = input
+    whitespace = tabwidth=4,tab-in-indent,cr-at-eol,trailing-space
+    pager = less -F -X
+
+[color]
+    ui = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
 [apply]
     whitespace = nowarn
+
 [format]
     pretty = %C(blue)%h%Creset %s %C(green)%d%Creset [%C(red)%an%Creset, %C(cyan)%cr%Creset] %C(bold reverse)%N%Creset
-[mergetool.ediff]
-    cmd = opendiff
+
+[github]
+    user = kiidle
+
+[merge]
+    tool = opendiff
+    ff = false
+
 [push]
-    default = tracking
+    default = current
+
 [branch]
     autosetuprebase = always
+
+[rerere]
+    enabled = 0
+
+[advice]
+    statusHints = false
+    detachedHead = false
+
+[pull]
+    rebase = true
